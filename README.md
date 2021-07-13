@@ -152,10 +152,15 @@ $rn->importJson2Data($JsonData->InaticaNeuralNetwork);
  
  
  @author Rafael Martin Soto
+ 
  @author {@link http://www.inatica.com/ Inatica}
+ 
  @since July 2021
+ 
  @version 1.0
- @license http://opensource.org/licenses/bsd-license.php BSD License
+ 
+ @license GNU General Public License v3.0
+ 
  
  	Thanks to:
 	- https://github.com/infostreams/neural-network/blob/master/class_neuralnetwork.php
