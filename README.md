@@ -43,6 +43,7 @@ BASIC USAGE:
  $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons
  
  If you want for example 4 layers (3x12x8x2): 3 input neurons, hidden layer with 12 neurons, hidden layer with 8 neurons, output layer with 2 neurons, simply do:
+ 
  $rn = new rn( [3, 12, 8, 2] );
  
  
@@ -53,7 +54,9 @@ BASIC USAGE:
  echo "Default Values: ".PHP_EOL;
  
  for($i=0;$i<$num_sample_data;$i++){
+ 
    $rn->EchoOutputValues( $arrTrainInputItems[$i], $arrTrainOutputItems[$i] );
+   
  }
  
  
@@ -63,11 +66,13 @@ BASIC USAGE:
  
  
 Resume of Methods:
+
 - CREATE NEURAL NETWORK:
  
 $rn = new rn( [ARRAY OF INT] );
 
 Example:
+
 $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons
 
 
@@ -77,14 +82,17 @@ $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer w
 $rn->EchoOutputValues( $arrTrainInputItems, $arrTrainOutputItems );
 
 Example:
+
 $rn->EchoOutputValues( $arrTrainInputItems[$i], $arrTrainOutputItems[$i] );
 
 
 
 - PROCESS OF LEARN
+
 $rn->Learn([ARRAY OF FLOAT], [ARRAY OF FLOAT]);
 
 Example:
+
 $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
 
 
@@ -94,53 +102,67 @@ $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
 $rn->fSet_num_epochs( INT ); // Set rn Num Epochs. Default: 1000
 
 Example:
+
 $rn->fSet_num_epochs( $NumEpochs );
 
 
 
 - SET THE ACTIVATION FUNCTION FOR ALL OF LAYERS:
+
 $rn->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 Example:
+
 $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 
 
 - SET THE ACTIVATION FUNCTION FOR ONE LAYERS:
+
 $layer->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 Example:
+
 $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 
 - SET LEARNING RATE
+
 $rn->set_alpha( FLOAT );
 
 Example:
+
 $rn->set_alpha( .5 );
 
 
 
 - GET THE OUPUT VALUE OF NEURAL NETWORK OF ONE OUTPUT NODE:
+
 - Output node: If we have 2 neurons, we can get the output value for Neuron[0] | Neuron[1]
+
 $rn->run( INT OUTPUT NODE ID, ARRAY OF FLOAT INPUT VALUES );
 
 Example:
+
 $rn->run( $id_output_node, $arrInputValues );
 
 
 - GET THE MEANSQUARE ERROR OF THE MODEL:
+
 $rn->MeanSquareError(ARRAY OF INPUT VALUES, ARRAY OF DESIRED VALUES);
 
 Example:
+
 $rn->MeanSquareError($arrTrainInputItems, $arrTrainOutputItems);
 
 
 - EXPORT THE TRAINED MODEL CONFIGURATION TO A STANDARD JSON STRING:
+
 echo $rn->exportData2Json();
 
 
 - IMPORT A TRAINED DATA STRING IN JSON FORMAT TO OUR NEURAL NETWORK CLASS:
+
 $rn->importJson2Data( STRING JSON );
 
 Example:
