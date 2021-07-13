@@ -1,5 +1,4 @@
-# rn
-Neural Network in pure PHP
+# rn Neural Network in pure PHP
 
 BASIC USAGE:
  
