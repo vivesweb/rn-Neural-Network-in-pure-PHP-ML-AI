@@ -162,10 +162,14 @@ $rn->importJson2Data($JsonData->InaticaNeuralNetwork);
  @license GNU General Public License v3.0
  
  
- 	Thanks to:
-	- https://github.com/infostreams/neural-network/blob/master/class_neuralnetwork.php
-	- https://gist.github.com/ikarius6/26851fb7220837e8016fe0c425d34dd6
-	- https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
- 	- https://www.youtube.com/channel/UCy5znSnfMsDwaLlROnZ7Qbg
+ A LOT OF THANKS TO:
+ 
+ *  - https://github.com/infostreams/neural-network/blob/master/class_neuralnetwork.php
+ *  
+ *  - https://gist.github.com/ikarius6/26851fb7220837e8016fe0c425d34dd6
+ *  
+ *  - https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
+ *  
+ *  - https://www.youtube.com/channel/UCy5znSnfMsDwaLlROnZ7Qbg
 
  *  - https://www.youtube.com/channel/UCy5znSnfMsDwaLlROnZ7Qbg
