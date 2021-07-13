@@ -1,4 +1,4 @@
-# rn Neural Network in pure PHP
+# rn Neural Network in pure PHP - ML Machine Learning - AI Artificial Intelligence
 
 BASIC USAGE:
  
