@@ -35,6 +35,7 @@ class rn
     public $layers					= [];
 	public $num_layers				= 0;
 	public $alpha 					= 1;
+	public $InformEachXBlock 		= 100; // echoes actual error each 100 blocks of datasets
 	public $InformEachXEpoch 		= 100; // echoes actual error each 100 epochs
 	public $MaxItemsMeanSquareError = 100; // Max number of Train items to get the Mean Square Error
 	public $num_epochs 				= 1000;
@@ -191,17 +192,24 @@ class rn
 	 * @param int $Epochs (Optional. Default 1000 Epochs)
 	 */
 	public function Learn($arrTrainInputItems, $arrTrainOutputItems, $Epochs = null){
-		if( isset($Epochs) ){
+		if( isset($Epochs) && $Epochs != null ){
 			$this->num_epochs = $Epochs;
 		}
 		$num_sample_data = count($arrTrainInputItems);
-		for($i = 0;$i<$Epochs;$i++){
+		for($i = 0;$i<$this->num_epochs;$i++){
+
 			for($j=0;$j<$num_sample_data;$j++){
 				$this->BackPropagation($arrTrainInputItems[$j],$arrTrainOutputItems[$j]);
+
+				if( $j%$this->InformEachXBlock == 0 ){
+					$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
+					echo 'Item '.$j.'/'.$num_sample_data.' . Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
+					$this->MeanSquareError = $MeanSquareError;
+				}
 			}
-			if($i%$this->InformEachXEpoch==0){
+			if( $i%$this->InformEachXEpoch == 0 && $this->InformEachXEpoch > $this->InformEachXBlock ){
 				$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
-				echo 'Epoch '.$i.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
+				echo 'Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
 				$this->MeanSquareError = $MeanSquareError;
 			}
 		}
@@ -223,7 +231,7 @@ class rn
 		$num_sample_data = count($arrTrainInputItems);
 
 		if($num_sample_data > $this->MaxItemsMeanSquareError){
-			$num_sample_data = $MaxItemsMeanSquareError;
+			$num_sample_data = $this->MaxItemsMeanSquareError;
 		}
 
 		$NumItemsAdded = 0;
