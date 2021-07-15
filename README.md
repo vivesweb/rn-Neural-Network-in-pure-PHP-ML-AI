@@ -67,7 +67,7 @@ RED NEURONAL
  $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
  
  
-# Resume of Methods:
+# RESUME OF METHODS:
 
 - CREATE NEURAL NETWORK:
  
@@ -190,7 +190,7 @@ $rn->InformEachXBlock = 10;
  
  
  
- # Future Plans
+ # FUTURE PLANS
  
  Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it ^_^). The opportunity to train complex models on local machines without need to install almost anything and implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model.
  
