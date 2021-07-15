@@ -1,7 +1,7 @@
 # rn Neural Network in pure PHP - ML Machine Learning - AI Artificial Intelligence
 RED NEURONAL
 
-BASIC USAGE:
+# BASIC USAGE:
  
  Requeriments:
  
@@ -13,7 +13,7 @@ BASIC USAGE:
  - Needed 1 hidden layer at least
  
  
- INSTALLATION:
+ # INSTALLATION:
  A lot of easy :). It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
  
  require_once( 'rn.class.php' );
@@ -66,7 +66,7 @@ BASIC USAGE:
  $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
  
  
-Resume of Methods:
+# Resume of Methods:
 
 - CREATE NEURAL NETWORK:
  
@@ -172,6 +172,17 @@ $JsonDataStr = '{"InaticaNeuralNetwork":{"NumInputNeurons":3,"NumOutputNeurons":
 $JsonData = json_decode( $JsonDataStr );
 
 $rn->importJson2Data($JsonData->InaticaNeuralNetwork);
+ 
+ 
+ # Future Plans
+ 
+ Deep learning process take a lot of time. Php is not the most efficient tool for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it ^_^). The opportunity to train complex models on local machines without need to install almost anything and implement them on production servers (like share hosting services) without need to configure anything, gives a clear advantage to this programming model.
+
+ One solution to improve the speed spend in the process of deep learning is using multi-processor threads (process parallelization)... and YES. PHP can do it!!!!
+ 
+ With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code will need to be executed on linux servers and CLI environtment, but the code for execute learned models will be remain standar for execute it on any type of server with PHP.
+ 
+ You need to wait some time.... Why? My life is not only virtual and PHP ;D, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  ^_^'
  
  
  @author Rafael Martin Soto
