@@ -206,7 +206,7 @@ Example:
  
  - **INFORM ABOUT THE LEARNING PROCESS**
 
-We can to do echoes of the actual neural network process with 2 variables of the network class:
+We can to do echoes periodically of the actual neural network process while the Machine is learning, with 2 simple variables of the network class:
 
 *$rn->InformEachXBlock*
 
