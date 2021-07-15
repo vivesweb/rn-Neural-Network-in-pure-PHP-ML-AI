@@ -194,7 +194,7 @@ If the process of learning is really fast, we can use InformEachXEpoch, for exam
 
 $rn->InformEachXEpoch = 100;
 
-If the process of learning is to slooooow, we can use InformEachXBlock, for example, for do one echo every block of 10 samples learned:
+If the process of learning is tooooo slooooow, we can use InformEachXBlock, for example, for do one echo every block of 10 samples learned:
 
 $rn->InformEachXBlock = 10;
  
