@@ -213,7 +213,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  # FUTURE PLANS
  
- Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process at Backpropagation algorithm take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it :heart_eyes:). The opportunity to train complex models on local machines without need to install almost anything and implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model.
+ Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process at Backpropagation algorithm take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it :heart_eyes:). The opportunity to train complex models on local machines without need to install almost anything and later implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model.
  
  
  **1) SOME BUG. NOT 100% GOOD RESULTS IN MEANSQUARE ERROR:**
