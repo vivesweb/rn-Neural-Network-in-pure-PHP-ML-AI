@@ -13,6 +13,16 @@ RED NEURONAL
  - Needed 1 hidden layer at least
  
  
+  # FILES:
+ There are 3 basic files:
+ 
+ rn.class.php -> Neural network class. This file is the main file. This file includes inside rn_layer.class.php
+ 
+ rn_layer.class.php -> Layer class. This file includes inside rn_node.class.php
+ 
+ rn_node.class.php -> Node/Neuron class
+ 
+ 
  # INSTALLATION:
  A lot of easy :). It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
  
