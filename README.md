@@ -33,37 +33,37 @@ No more easy use is possible. You only need to include a master file .php as... 
  # INSTALLATION:
  A lot of easy :smiley:. It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
  
- `    require_once( 'rn.class.php' );`
+         require_once( 'rn.class.php' );
  
  # BASIC USAGE:
  
  - Define train input items array
  
- `    $arrTrainInputItems	= [
-    	[0, 0],
-	[0, 1],
-	[1, 0],
-	[1, 1]
-     ];`
+         $arrTrainInputItems	= [
+	        [0, 0],
+	        [0, 1],
+	        [1, 0],
+	        [1, 1]
+         ];
  
  
  - Define desired output values array
  
-`    $arrTrainOutputItems 	= [
-	[0.1, 0.2],
-	[0.3, 0.4],
-	[0.5, 0.6],
-	[0.7, 0.8]
-     ];`
+         $arrTrainOutputItems 	= [
+	        [0.1, 0.2],
+	        [0.3, 0.4],
+	        [0.5, 0.6],
+	        [0.7, 0.8]
+         ];
  
  
  - Create neural network object
  
- `    $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons`
+         $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons
  
  If you want for example 4 layers (3x12x8x2): 3 input neurons, hidden layer with 12 neurons, hidden layer with 8 neurons, output layer with 2 neurons, simply do:
  
- `    $rn = new rn( [3, 12, 8, 2] );`
+         $rn = new rn( [3, 12, 8, 2] );
  
  
  - Print All Train Input data, Neural Network Output data & Train Desired Data
@@ -82,7 +82,7 @@ No more easy use is possible. You only need to include a master file .php as... 
  
  - Do learn process:
  
- `    $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);`
+         $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
  
  
 # RESUME OF METHODS:
@@ -93,7 +93,7 @@ No more easy use is possible. You only need to include a master file .php as... 
 
 Example:
 
-`    $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons`
+        $rn = new rn( [3, 1, 2] );  // 3x1x2 = 3 layers. 3 input neurons, hidden layer with 1 neuron, 2 output neurons
 
 
 
@@ -103,7 +103,7 @@ Example:
 
 Example:
 
-`    $rn->EchoOutputValues( $arrTrainInputItems[$i], $arrTrainOutputItems[$i] );`
+        $rn->EchoOutputValues( $arrTrainInputItems[$i], $arrTrainOutputItems[$i] );
 
 
 
@@ -113,7 +113,7 @@ Example:
 
 Example:
 
-`    $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);`
+        $rn->Learn($arrTrainInputItems, $arrTrainOutputItems);
 
 
 
@@ -123,7 +123,7 @@ Example:
 
 Example:
 
-`    $rn->fSet_num_epochs( 10000 ); // 10000 Epochs`
+        $rn->fSet_num_epochs( 10000 ); // 10000 Epochs
 
 
 
@@ -133,7 +133,7 @@ Example:
 
 Example:
 
-`    $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'`
+        $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 
 
@@ -143,7 +143,7 @@ Example:
 
 Example:
 
-`    $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'`
+        $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 
 - **SET LEARNING RATE:**
@@ -152,7 +152,7 @@ Example:
 
 Example:
 
-`    $rn->set_alpha( .5 );`
+            $rn->set_alpha( .5 );
 
 
 
@@ -164,7 +164,7 @@ Example:
 
 Example:
 
-`    $rn->run( $id_output_node, $arrInputValues );`
+            $rn->run( $id_output_node, $arrInputValues );
 
 
 - **GET THE MEANSQUARE ERROR OF THE MODEL:**
@@ -173,12 +173,12 @@ Example:
 
 Example:
 
-`    $rn->MeanSquareError($arrTrainInputItems, $arrTrainOutputItems);`
+            $rn->MeanSquareError($arrTrainInputItems, $arrTrainOutputItems);
 
 
 - **EXPORT THE TRAINED MODEL CONFIGURATION TO A STANDARD JSON STRING:**
 
-`    echo $rn->exportData2Json();`
+            echo $rn->exportData2Json();
 
 
 - **IMPORT A TRAINED DATA STRING IN JSON FORMAT TO OUR NEURAL NETWORK CLASS:**
@@ -203,11 +203,11 @@ We can to do echoes of the actual neural network process with 2 variables of the
 
 If the process of learning is really fast, we can use InformEachXEpoch, for example, for do one echo of the values every 100 Epochs:
 
-`    $rn->InformEachXEpoch = 100;`
+            $rn->InformEachXEpoch = 100;
 
 If the process of learning is tooooo slooooow, we can use InformEachXBlock, for example, for do one echo every block of 10 samples learned:
 
-`    $rn->InformEachXBlock = 10;`
+            $rn->InformEachXBlock = 10;
  
  
  
@@ -243,7 +243,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code **WILL NEED** to be executed on **GNU/LINUX** servers and **CLI** environtment, but the code for execute learned models will be remain standar for execute it on any type of standard server as a basic web server with PHP installation, for example (CLI, cgi, windows, linux, web server on shared hosting, ....).
  
- You need to wait some time.... Why? My life is not only virtual and PHP :wink:, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC:thermometer: doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  :sweat_smile: :man_facepalming:
+ You need to wait some time.... Why? My life is not only virtual and PHP :wink:, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your CPU at 100ºC:thermometer: doing deep learning???? I do.... in case you are curious to know what happens, the server stops immediately  :sweat_smile: :man_facepalming:
  
   ### THE GREAT PROJECT
   
@@ -252,6 +252,9 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :smiley:
  
  
+ **Of course. You can use it freely :vulcan_salute::alien:**
+ 
+ By Rafa.
  
  
  @author Rafael Martin Soto
