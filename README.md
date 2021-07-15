@@ -237,7 +237,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  I have in mind to implement different characteristics to the class, such as **MOMENTUM**, other activation functions as **RELU** or **SOFTMAX**, .... among others.
  
- It would be very interesting to add specific functions to speed up programming and its use in convolutional neural networks.
+ It would be very interesting to add specific functions to speed up programming and its use in **convolutional neural networks**.
  
  Another interesting feature will be to add to the class the option to save or read the current configuration of the neural network learned data from a file. Currently, it is possible to import and export the configuration of our network using the JSON data format as input or output, but reading and writing these same data into files would speed up many processes in an automated way.
  
