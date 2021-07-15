@@ -1,13 +1,20 @@
 # rn Neural Network in pure PHP - ML Machine Learning - AI Artificial Intelligence
 RED NEURONAL
 
+ # WHAT IS?:
+It is a library for machine learning (deep learning). You can create a neural network structure of the layers we want with the number of neurons we want. Each layer can have a different trigger function. The result can be exported in JSON format to take the trained network to any other server. 100% written in PHP (pure PHP). Easy to use on any type of server.
+
+Easely use. You only need to include a master file .php and with very little code begin to train your data :smiley:
+
+ # SCREENSHOT:
+![Screenshot of the neural network written in Pure PHP](https://github.com/vivesweb/rn-Neural-Network-in-pure-PHP-ML-AI/blob/main/Captura-de-pantalla-2021-07-15-a-les-14.00.49.jpg)
 
  
  # REQUERIMENTS:
  
  - A minimum (minimum, minimum, minimum requeriments is needed). Tested on:
  		
-    - Simple Raspberry pi (B +	512MB	700 MHz ARM11) with Raspbian Lite PHP7.3 (i love this gadgets)  ^_^
+    - Simple Raspberry pi (B +	512MB	700 MHz ARM11) with Raspbian Lite PHP7.3 (i love this gadgets)  :heart_eyes:
  		
     - VirtualBox Ubuntu Server 20.04.2 LTS (Focal Fossa) with PHP7.4.3 
  - Needed 1 hidden layer at least
@@ -234,13 +241,13 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code will need to be executed on linux servers and CLI environtment, but the code for execute learned models will be remain standar for execute it on any type of standard server as a basic web server with PHP installation, for example (CLI, cgi, windows, linux, web server on shared hosting, ....).
  
- You need to wait some time.... Why? My life is not only virtual and PHP ;D, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  ^_^'
+ You need to wait some time.... Why? My life is not only virtual and PHP ;D, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  :sweat_smile: :man_facepalming:
  
   ### THE GREAT PROJECT
   
  **4) DEEP LEARNING SERVER FARM WITH PHP**
 
- The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :D
+ The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :smiley:
  
  
  
