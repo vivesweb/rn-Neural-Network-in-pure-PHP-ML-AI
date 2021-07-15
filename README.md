@@ -23,7 +23,7 @@ No more easy use is possible. You only need to include a master file .php as... 
   # FILES:
  There are 3 basic files:
  
- *rn.class.php* -> Neural network class. This file is the main file. This file includes inside rn_layer.class.php
+ *rn.class.php* -> Neural network class. This file is the main file that you need to include in your code. This file includes inside rn_layer.class.php
  
  *rn_layer.class.php* -> Layer class. This file includes inside rn_node.class.php
  
@@ -31,7 +31,7 @@ No more easy use is possible. You only need to include a master file .php as... 
  
  
  # INSTALLATION:
- A lot of easy :smiley:. It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
+ A lot of easy :smiley:. It is written in PURE PHP. Only need to include the files. Tested on basic PHP installation
  
          require_once( 'rn.class.php' );
  
