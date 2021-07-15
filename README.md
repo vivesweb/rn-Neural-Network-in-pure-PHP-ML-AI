@@ -129,7 +129,7 @@ $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
 
 
 
-- SET THE ACTIVATION FUNCTION FOR ONE LAYERS:
+- SET THE ACTIVATION FUNCTION FOR ONE LAYER:
 
 $layer->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
 
