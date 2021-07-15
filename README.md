@@ -1,13 +1,13 @@
 # rn Neural Network in pure PHP - ML Machine Learning - AI Artificial Intelligence
 RED NEURONAL
 
-# BASIC USAGE:
+
  
- Requeriments:
+ # REQUERIMENTS:
  
  - A minimum (minimum, minimum, minimum requeriments is needed). Tested on:
  		
-    - Simple Raspberry pi (B +	512MB	700 MHz ARM11) with Raspbian Lite PHP7.3 ^_^
+    - Simple Raspberry pi (B +	512MB	700 MHz ARM11) with Raspbian Lite PHP7.3 (i love this gadgets)  ^_^
  		
     - VirtualBox Ubuntu Server 20.04.2 LTS (Focal Fossa) with PHP7.4.3 
  - Needed 1 hidden layer at least
@@ -18,6 +18,7 @@ RED NEURONAL
  
  require_once( 'rn.class.php' );
  
+ # BASIC USAGE:
  
  - Define train input items array
  
@@ -173,16 +174,59 @@ $JsonData = json_decode( $JsonDataStr );
 
 $rn->importJson2Data($JsonData->InaticaNeuralNetwork);
  
+ - INFORM ABOUT THE LEARNING PROCESS
+
+We can to do echoes of the actual neural network process with 2 variables of the network class:
+$rn->InformEachXBlock
+$rn->InformEachXEpoch
+
+If the process of learning is really fast, we can use InformEachXEpoch, for example, for do one echo of the values every 100 Epochs:
+
+$rn->InformEachXEpoch = 100;
+
+If the process of learning is to slooooow, we can use InformEachXBlock, for example, for do one echo every block of 10 samples learned:
+
+$rn->InformEachXBlock = 10;
+ 
+ 
  
  # Future Plans
  
- Deep learning process take a lot of time. Php is not the most efficient tool for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it ^_^). The opportunity to train complex models on local machines without need to install almost anything and implement them on production servers (like share hosting services) without need to configure anything, gives a clear advantage to this programming model.
+ Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it ^_^). The opportunity to train complex models on local machines without need to install almost anything and implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model.
+ 
+ 
+ 1) SOME BUG. NOT 100% GOOD RESULTS IN MEANSQUARE ERROR:
+ 
+ The system of obtaining the quadratic error of the network will surely be changed, since the current system looks for the error on the first 100 data of the model to be learned (so as not to perform the calculation on the entire entire database). An alternative solution will be sought to improve the accuracy of the error.
+ 
+ 
+ 
+ 2) ADD SOME FEATURES
+ 
+ I have in mind to implement different characteristics to the class, such as momentum, other activation functions as RELU or SOFTMAX, .... among others.
+ 
+ It would be very interesting to add specific functions to speed up programming and its use in convolutional neural networks.
+ 
+ Another interesting feature will be to add to the class the option to save or read the current configuration of the neural network learned data from a file. Currently, it is possible to import and export the configuration of our network using the JSON data format as input or output, but reading and writing these same data into files would speed up many processes in an automated way.
+ 
+ As an extra utility, we also want to prepare the system so that it can obtain the train, desired and evaluation data directly from .CSV files.
 
+
+
+ ACCELERATE LEARNING SPEED
+ 
+ 
+ 3) MULTITHREAD & MULTI-PROCESSORS
+ 
  One solution to improve the speed spend in the process of deep learning is using multi-processor threads (process parallelization)... and YES. PHP can do it!!!!
  
- With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code will need to be executed on linux servers and CLI environtment, but the code for execute learned models will be remain standar for execute it on any type of server with PHP.
+ With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code will need to be executed on linux servers and CLI environtment, but the code for execute learned models will be remain standar for execute it on any type of standard server as a basic web server with PHP installation, for example (CLI, cgi, windows, linux, web server on shared hosting, ....).
  
  You need to wait some time.... Why? My life is not only virtual and PHP ;D, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  ^_^'
+ 
+ 3) DEEP LEARNING SERVER FARM
+
+ The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :D
  
  
  @author Rafael Martin Soto
