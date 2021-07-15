@@ -26,7 +26,7 @@ RED NEURONAL
  # INSTALLATION:
  A lot of easy :). It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
  
- `    require_once( 'rn.class.php' );``
+ `    require_once( 'rn.class.php' );`
  
  # BASIC USAGE:
  
