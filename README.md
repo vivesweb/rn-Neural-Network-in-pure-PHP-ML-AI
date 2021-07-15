@@ -31,7 +31,7 @@ Easely use. You only need to include a master file .php and with very little cod
  
  
  # INSTALLATION:
- A lot of easy :). It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
+ A lot of easy :smiley:. It is written in PURE PHP. Only need to inclue the files. Tested on basic PHP installation
  
  `    require_once( 'rn.class.php' );`
  
