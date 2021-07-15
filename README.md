@@ -224,7 +224,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  **2) ADD SOME FEATURES**
  
- I have in mind to implement different characteristics to the class, such as momentum, other activation functions as RELU or SOFTMAX, .... among others.
+ I have in mind to implement different characteristics to the class, such as **MOMENTUM**, other activation functions as **RELU** or **SOFTMAX**, .... among others.
  
  It would be very interesting to add specific functions to speed up programming and its use in convolutional neural networks.
  
@@ -239,7 +239,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  **3) MULTITHREAD & MULTI-PROCESSORS**
  
- One solution to improve the speed spend in the process of deep learning is using multi-processor threads (process parallelization)... and YES. PHP can do it!!!!
+ One solution to improve the speed spend in the process of deep learning is using **multi-processor threads (process parallelization)**... and **YES!!!. PHP can do it!!!!**
  
  With php, parallelization is possible, then i will have new code soon for the class with parallelization feature. This code will need to be executed on linux servers and CLI environtment, but the code for execute learned models will be remain standar for execute it on any type of standard server as a basic web server with PHP installation, for example (CLI, cgi, windows, linux, web server on shared hosting, ....).
  
