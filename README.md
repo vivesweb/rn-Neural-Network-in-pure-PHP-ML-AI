@@ -104,6 +104,17 @@ Example:
 Example:
 
         $rn->EchoOutputValues( $arrTrainInputItems[$i], $arrTrainOutputItems[$i] );
+	
+	
+- **PRINT ALL TRAIN INPUT DATA & NEURAL NETWORK OUTPUT:**
+
+*$rn->EchoOutputValues( $arrTrainInputItems );*
+
+This method is the same as previous method, with only 1 parameter. The parameter of DesiredData is optional in this method.
+
+Example:
+
+        $rn->EchoOutputValues( $arrTrainInputItems[$i] );
 
 
 
