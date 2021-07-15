@@ -23,11 +23,11 @@ No more easy use is possible. You only need to include a master file .php as... 
   # FILES:
  There are 3 basic files:
  
- rn.class.php -> Neural network class. This file is the main file. This file includes inside rn_layer.class.php
+ *rn.class.php* -> Neural network class. This file is the main file. This file includes inside rn_layer.class.php
  
- rn_layer.class.php -> Layer class. This file includes inside rn_node.class.php
+ *rn_layer.class.php* -> Layer class. This file includes inside rn_node.class.php
  
- rn_node.class.php -> Node/Neuron class
+ *rn_node.class.php* -> Node/Neuron class
  
  
  # INSTALLATION:
@@ -89,7 +89,7 @@ No more easy use is possible. You only need to include a master file .php as... 
 
 - **CREATE NEURAL NETWORK:**
  
-$rn = new rn( [ARRAY OF INT] );
+*$rn = new rn( [ARRAY OF INT] );*
 
 Example:
 
@@ -99,7 +99,7 @@ Example:
 
 - **PRINT ALL TRAIN INPUT DATA, NEURAL NETWORK OUTPUT DATA & TRAIN DESIRED DATA:**
 
-$rn->EchoOutputValues( $arrTrainInputItems, $arrTrainOutputItems );
+*$rn->EchoOutputValues( $arrTrainInputItems, $arrTrainOutputItems );*
 
 Example:
 
@@ -109,7 +109,7 @@ Example:
 
 - **PROCESS OF LEARN:**
 
-$rn->Learn([ARRAY OF FLOAT], [ARRAY OF FLOAT]);
+*$rn->Learn([ARRAY OF FLOAT], [ARRAY OF FLOAT]);*
 
 Example:
 
@@ -119,17 +119,17 @@ Example:
 
 - **SET THE NUMBER OF EPOCHS:**
 
-$rn->fSet_num_epochs( INT ); // Set rn Num Epochs. Default: 1000
+*$rn->fSet_num_epochs( INT );*
 
 Example:
 
-`    $rn->fSet_num_epochs( $NumEpochs );`
+`    $rn->fSet_num_epochs( 10000 ); // 10000 Epochs`
 
 
 
 - **SET THE ACTIVATION FUNCTION FOR ALL OF LAYERS:**
 
-$rn->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
+*$rn->fSet_activation_function( STRING );*
 
 Example:
 
@@ -139,7 +139,7 @@ Example:
 
 - **SET THE ACTIVATION FUNCTION FOR ONE LAYER:**
 
-$layer->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
+*$layer->fSet_activation_function( STRING );*
 
 Example:
 
@@ -148,7 +148,7 @@ Example:
 
 - **SET LEARNING RATE:**
 
-$rn->set_alpha( FLOAT );
+*$rn->set_alpha( FLOAT );*
 
 Example:
 
@@ -160,7 +160,7 @@ Example:
 
 - Output node: If we have 2 neurons, we can get the output value for Neuron[0] | Neuron[1]
 
-$rn->run( INT OUTPUT NODE ID, ARRAY OF FLOAT INPUT VALUES );
+*$rn->run( INT OUTPUT NODE ID, ARRAY OF FLOAT INPUT VALUES );*
 
 Example:
 
@@ -169,7 +169,7 @@ Example:
 
 - **GET THE MEANSQUARE ERROR OF THE MODEL:**
 
-$rn->MeanSquareError(ARRAY OF INPUT VALUES, ARRAY OF DESIRED VALUES);
+*$rn->MeanSquareError(ARRAY OF INPUT VALUES, ARRAY OF DESIRED VALUES);*
 
 Example:
 
@@ -183,7 +183,7 @@ Example:
 
 - **IMPORT A TRAINED DATA STRING IN JSON FORMAT TO OUR NEURAL NETWORK CLASS:**
 
-$rn->importJson2Data( STRING JSON );
+*$rn->importJson2Data( STRING JSON );*
 
 Example:
 
@@ -196,8 +196,8 @@ Example:
  - **INFORM ABOUT THE LEARNING PROCESS**
 
 We can to do echoes of the actual neural network process with 2 variables of the network class:
-$rn->InformEachXBlock
-$rn->InformEachXEpoch
+*$rn->InformEachXBlock*
+*$rn->InformEachXEpoch*
 
 If the process of learning is really fast, we can use InformEachXEpoch, for example, for do one echo of the values every 100 Epochs:
 
