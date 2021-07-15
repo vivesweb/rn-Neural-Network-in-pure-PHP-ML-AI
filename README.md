@@ -2,9 +2,9 @@
 RED NEURONAL
 
  # WHAT IS?:
-It is a library for machine learning (deep learning). You can create a neural network structure of the layers we want with the number of neurons we want. Each layer can have a different trigger function. The result can be exported in JSON format to take the trained network to any other server. 100% written in PHP (pure PHP). Easy to use on any type of server.
+It is a library for machine learning (deep learning). You can create a neural network structure of the layers we want with the number of neurons we want. Each layer can have a different activation function. The result can be exported in JSON format to take the trained network to any other server. 100% written in PHP (pure PHP). Easy to use on any type of server. You can use it freely and working without install any package more, With the defaults values of your server, in one shared hosting server, for example :smiley:.
 
-Easely use. You only need to include a master file .php and with very little code begin to train your data :smiley:
+No more easy use is possible. You only need to include a master file .php as... **_require_once( 'rn.class.php' );_** and with very little code begin to train your data. You have an example.php file for test it.
 
  # SCREENSHOT:
 ![Screenshot of the neural network written in Pure PHP](https://github.com/vivesweb/rn-Neural-Network-in-pure-PHP-ML-AI/blob/main/Captura-de-pantalla-2021-07-15-a-les-14.00.49.jpg)
