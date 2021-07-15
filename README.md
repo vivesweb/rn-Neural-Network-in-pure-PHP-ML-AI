@@ -2,7 +2,7 @@
 RED NEURONAL
 
  ## WHAT DO THIS LIBRARY IN PURE PHP OF ARTIFICIAL INTELLIGENCE?:
-It is a library for machine learning (deep learning) to learn patterns with your datasets. You can create a neural network structure of the layers you want with the number of neurons you want. Each layer can have a different activation function. Ya can train your data in the network with backpropagation function integrated. The result can be exported in JSON format to take the trained network to any other server. 100% written in PHP (pure PHP). Easy to use on any type of server. You can use it freely and working without install any package more. With the defaults values of your server, this code with your trained data can be used in your shared hosting server, for example, as simple as that :smiley:
+It is a library for machine learning (deep learning) to learn patterns with your datasets. You can create a neural network structure of the layers you want with the number of neurons you want. Each layer can have a different activation function. Ya can train your data in the network with backpropagation function integrated. The result can be exported in JSON format to take the trained network to any other server. 100% written in PHP (pure PHP). Easy to use on any type of server. You can use it freely and working without install any package more. With the default configuration of your server, this code, with your trained data in local server, can be used in your shared hosting server, for example, as simple as that :smiley:
 
 No more easy use is possible. You only need to include a master file .php as... **_require_once( 'rn.class.php' );_** and with very little code begin to train your data. You have an example.php file for test it.
 
