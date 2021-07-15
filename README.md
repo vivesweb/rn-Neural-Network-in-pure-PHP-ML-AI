@@ -80,7 +80,7 @@ RED NEURONAL
  
 # RESUME OF METHODS:
 
-- CREATE NEURAL NETWORK:
+- **CREATE NEURAL NETWORK:**
  
 $rn = new rn( [ARRAY OF INT] );
 
@@ -90,7 +90,7 @@ Example:
 
 
 
-- PRINT ALL TRAIN INPUT DATA, NEURAL NETWORK OUTPUT DATA & TRAIN DESIRED DATA:
+- **PRINT ALL TRAIN INPUT DATA, NEURAL NETWORK OUTPUT DATA & TRAIN DESIRED DATA:**
 
 $rn->EchoOutputValues( $arrTrainInputItems, $arrTrainOutputItems );
 
@@ -100,7 +100,7 @@ Example:
 
 
 
-- PROCESS OF LEARN
+- **PROCESS OF LEARN:**
 
 $rn->Learn([ARRAY OF FLOAT], [ARRAY OF FLOAT]);
 
@@ -110,7 +110,7 @@ Example:
 
 
 
-- SET THE NUMBER OF EPOCHS:
+- **SET THE NUMBER OF EPOCHS:**
 
 $rn->fSet_num_epochs( INT ); // Set rn Num Epochs. Default: 1000
 
@@ -120,7 +120,7 @@ Example:
 
 
 
-- SET THE ACTIVATION FUNCTION FOR ALL OF LAYERS:
+- **SET THE ACTIVATION FUNCTION FOR ALL OF LAYERS:**
 
 $rn->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
 
@@ -130,7 +130,7 @@ Example:
 
 
 
-- SET THE ACTIVATION FUNCTION FOR ONE LAYER:
+- **SET THE ACTIVATION FUNCTION FOR ONE LAYER:**
 
 $layer->fSet_activation_function( STRING ); // ['sigm' | 'tanh'] Default: 'sigm'
 
@@ -139,7 +139,7 @@ Example:
 `    $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'`
 
 
-- SET LEARNING RATE
+- **SET LEARNING RATE:**
 
 $rn->set_alpha( FLOAT );
 
@@ -149,7 +149,7 @@ Example:
 
 
 
-- GET THE OUPUT VALUE OF NEURAL NETWORK OF ONE OUTPUT NODE:
+- **GET THE OUPUT VALUE OF NEURAL NETWORK OF ONE OUTPUT NODE:**
 
 - Output node: If we have 2 neurons, we can get the output value for Neuron[0] | Neuron[1]
 
@@ -160,7 +160,7 @@ Example:
 `    $rn->run( $id_output_node, $arrInputValues );`
 
 
-- GET THE MEANSQUARE ERROR OF THE MODEL:
+- **GET THE MEANSQUARE ERROR OF THE MODEL:**
 
 $rn->MeanSquareError(ARRAY OF INPUT VALUES, ARRAY OF DESIRED VALUES);
 
@@ -169,23 +169,24 @@ Example:
 `    $rn->MeanSquareError($arrTrainInputItems, $arrTrainOutputItems);`
 
 
-- EXPORT THE TRAINED MODEL CONFIGURATION TO A STANDARD JSON STRING:
+- **EXPORT THE TRAINED MODEL CONFIGURATION TO A STANDARD JSON STRING:**
 
 `    echo $rn->exportData2Json();`
 
 
-- IMPORT A TRAINED DATA STRING IN JSON FORMAT TO OUR NEURAL NETWORK CLASS:
+- **IMPORT A TRAINED DATA STRING IN JSON FORMAT TO OUR NEURAL NETWORK CLASS:**
 
 $rn->importJson2Data( STRING JSON );
 
 Example:
-`    $JsonDataStr = '{"InaticaNeuralNetwork":{"NumInputNeurons":3,"NumOutputNeurons":2,"CreationDate":"2021-07-11 16:59:26","NumTotalLayers":3,"NumHiddenLayers":1,"NumEpochs":1000,"MeanSquareError":0.0006291862647577675,"Layers":[{"Layer":{"num_nodes":3,"imFirst":true,"imLast":false,"activation_function":"sigm","bias":-2.2457597339700284,"Nodes":[{"Node":{"arr_weights_to_next_layer":[0.5]}},{"Node":{"arr_weights_to_next_layer":[2.9314473212095957]}},{"Node":{"arr_weights_to_next_layer":[1.9449224564817373]}}]}},{"Layer":{"num_nodes":1,"imFirst":false,"imLast":false,"activation_function":"sigm","bias":-2.0579661087844885,"Nodes":[{"Node":{"arr_weights_to_next_layer":[3.0701300830533205,3.739411894753024]}}]}},{"Layer":{"num_nodes":2,"imFirst":false,"imLast":true,"activation_function":"sigm","bias":0.5,"Nodes":[{"Node":{"arr_weights_to_next_layer":0.5}},{"Node":{"arr_weights_to_next_layer":0.5}}]}}]}}';
-    
+
+    $JsonDataStr = '{"InaticaNeuralNetwork":{"NumInputNeurons":3,"NumOutputNeurons":2,"CreationDate":"2021-07-11 16:59:26","NumTotalLayers":3,"NumHiddenLayers":1,"NumEpochs":1000,"MeanSquareError":0.0006291862647577675,"Layers":[{"Layer":{"num_nodes":3,"imFirst":true,"imLast":false,"activation_function":"sigm","bias":-2.2457597339700284,"Nodes":[{"Node":{"arr_weights_to_next_layer":[0.5]}},{"Node":{"arr_weights_to_next_layer":[2.9314473212095957]}},{"Node":{"arr_weights_to_next_layer":[1.9449224564817373]}}]}},{"Layer":{"num_nodes":1,"imFirst":false,"imLast":false,"activation_function":"sigm","bias":-2.0579661087844885,"Nodes":[{"Node":{"arr_weights_to_next_layer":[3.0701300830533205,3.739411894753024]}}]}},{"Layer":{"num_nodes":2,"imFirst":false,"imLast":true,"activation_function":"sigm","bias":0.5,"Nodes":[{"Node":{"arr_weights_to_next_layer":0.5}},{"Node":{"arr_weights_to_next_layer":0.5}}]}}]}}';
+      
     $JsonData = json_decode( $JsonDataStr );
-    
-    $rn->importJson2Data($JsonData->InaticaNeuralNetwork);`
+      
+    $rn->importJson2Data($JsonData->InaticaNeuralNetwork);
  
- - INFORM ABOUT THE LEARNING PROCESS
+ - **INFORM ABOUT THE LEARNING PROCESS**
 
 We can to do echoes of the actual neural network process with 2 variables of the network class:
 $rn->InformEachXBlock
@@ -206,13 +207,13 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process at Backpropagation algorithm take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it ^_^). The opportunity to train complex models on local machines without need to install almost anything and implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model.
  
  
- 1) SOME BUG. NOT 100% GOOD RESULTS IN MEANSQUARE ERROR:
+ **1) SOME BUG. NOT 100% GOOD RESULTS IN MEANSQUARE ERROR:**
  
  The system of obtaining the quadratic error of the network will surely be changed, since the current system looks for the error on the first 100 data of the model to be learned (so as not to perform the calculation on the entire entire database). An alternative solution will be sought to improve the accuracy of the error.
  
  
  
- 2) ADD SOME FEATURES
+ **2) ADD SOME FEATURES**
  
  I have in mind to implement different characteristics to the class, such as momentum, other activation functions as RELU or SOFTMAX, .... among others.
  
@@ -224,10 +225,10 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
 
 
 
- ACCELERATE LEARNING SPEED
+ ### ACCELERATE LEARNING SPEED
  
  
- 3) MULTITHREAD & MULTI-PROCESSORS
+ **3) MULTITHREAD & MULTI-PROCESSORS**
  
  One solution to improve the speed spend in the process of deep learning is using multi-processor threads (process parallelization)... and YES. PHP can do it!!!!
  
@@ -235,9 +236,13 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  You need to wait some time.... Why? My life is not only virtual and PHP ;D, but i promise to upload the code as fast as i can. There are many problems that can arise when working with multithreads (system messages between processes, shared memory between them, ...). All this must be controlled correctly by means of semaphores so that some processes do not interfere with others giving system errors ... and as if that were not enough, the temperature of the CPU must be controlled, since the deep learning process is a hard task for the processor. Have you put your processor at 100ºC doing deep learning? I do.... in case you are curious to know what happens, the server stops immediately  ^_^'
  
- 3) DEEP LEARNING SERVER FARM
+  ### THE GREAT PROJECT
+  
+ **4) DEEP LEARNING SERVER FARM WITH PHP**
 
  The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :D
+ 
+ 
  
  
  @author Rafael Martin Soto
