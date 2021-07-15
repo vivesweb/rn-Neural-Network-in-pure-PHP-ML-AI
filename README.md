@@ -23,11 +23,11 @@ No more easy use is possible. You only need to include a master file .php as... 
   # FILES:
  There are 3 basic files:
  
- *rn.class.php* -> Neural network class. This file is the main file that you need to include in your code. This file includes inside rn_layer.class.php
+ *rn.class.php* -> **Neural network class**. This file is the main file that you need to include in your code. This file includes inside rn_layer.class.php
  
- *rn_layer.class.php* -> Layer class. This file includes inside rn_node.class.php
+ *rn_layer.class.php* -> **Layer class**. This file includes inside rn_node.class.php
  
- *rn_node.class.php* -> Node/Neuron class
+ *rn_node.class.php* -> **Node/Neuron** class
  
  
  # INSTALLATION:
