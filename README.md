@@ -196,7 +196,9 @@ Example:
  - **INFORM ABOUT THE LEARNING PROCESS**
 
 We can to do echoes of the actual neural network process with 2 variables of the network class:
+
 *$rn->InformEachXBlock*
+
 *$rn->InformEachXEpoch*
 
 If the process of learning is really fast, we can use InformEachXEpoch, for example, for do one echo of the values every 100 Epochs:
