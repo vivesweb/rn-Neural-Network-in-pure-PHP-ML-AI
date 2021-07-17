@@ -250,7 +250,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  **3) MULTITHREAD & MULTI-PROCESSORS**
  
- One solution to improve the speed spend in the process of deep learning is using **multi-processor threads (process parallelization)**... and **YES!!!. PHP can do it!!!!** :blush:
+ One solution to improve the speed spend in the process of deep learning is using **multi-processor threads (process parallelization)**... and **YES!!!. PHP can do it natively!!!!** :blush:
  
  With PHP, parallelization is possible. I will have new code soon for the class with parallelization feature. This future code obligatorily **WILL NEED** to be executed on **GNU/LINUX** servers and **CLI** environtment, but the code for execute learned models can be executed on any type of server with php, as a basic web server, for example (CLI, cgi, windows, linux, web server on shared hosting, ....).
  
