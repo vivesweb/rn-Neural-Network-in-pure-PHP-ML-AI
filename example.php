@@ -111,7 +111,8 @@ $NumEpochs = 1000;
 $rn = new rn( [2, 1, 2] );  // 2x1x2 = 3 layers. 2 input neurons, hidden layer with 1 neuron, 2 output neurons.
 $rn->fSet_num_epochs( $NumEpochs ); // Set rn Num Epochs (1000 by default config if not set).
 $rn->fSet_activation_function( 'sigm' ); // Set the default activation function ('sigm' if not set).
-
+$rn->set_alpha( 1 ); // Set the default activation function ('sigm' if not set).
+$rn->InformEachXBlock = 10;
 
 
 // Print Not trained Neural Network Input data, Output data & Desired Values
@@ -140,5 +141,5 @@ for($i=0;$i<$num_sample_data;$i++){
 
 
 // We can export the data to export the trained model to use it on other sites, as for example, a simple Production Web Server :)
-// echo $rn->exportData2Json().PHP_EOL;
+echo $rn->exportData2Json().PHP_EOL;
 ?>

@@ -35,7 +35,7 @@ class rn
     public $layers					= [];
 	public $num_layers				= 0;
 	public $alpha 					= 1;
-	public $InformEachXBlock 		= 100; // echoes actual error each 100 blocks of datasets
+	public $InformEachXBlock 		= NULL; // echoes actual error each X blocks of datasets
 	public $InformEachXEpoch 		= 100; // echoes actual error each 100 epochs
 	public $MaxItemsMeanSquareError = 100; // Max number of Train items to get the Mean Square Error
 	public $num_epochs 				= 1000;
@@ -201,13 +201,13 @@ class rn
 			for($j=0;$j<$num_sample_data;$j++){
 				$this->BackPropagation($arrTrainInputItems[$j],$arrTrainOutputItems[$j]);
 
-				if( $j%$this->InformEachXBlock == 0 ){
+				if( $this->InformEachXBlock !== NULL && $j%$this->InformEachXBlock == 0 ){
 					$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
 					echo 'Item '.$j.'/'.$num_sample_data.' . Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
 					$this->MeanSquareError = $MeanSquareError;
 				}
 			}
-			if( $i%$this->InformEachXEpoch == 0 && $this->InformEachXEpoch > $this->InformEachXBlock ){
+			if( $this->InformEachXBlock === NULL && $i%$this->InformEachXEpoch == 0 ){
 				$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
 				echo 'Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
 				$this->MeanSquareError = $MeanSquareError;
