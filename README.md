@@ -145,7 +145,7 @@ Example:
 
 Example:
 
-        $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
+        $rn->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh' | 'relu'] Default: 'sigm'
 
 
 
@@ -155,7 +155,7 @@ Example:
 
 Example:
 
-        $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh'] Default: 'sigm'
+        $rn->layer[1]->fSet_activation_function( 'sigm' ); // ['sigm' | 'tanh' | 'relu'] Default: 'sigm'
 
 
 - **SET LEARNING RATE:**
@@ -236,7 +236,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  **2) ADD SOME FEATURES**
  
- I have in mind to implement different characteristics to the class, such as **MOMENTUM**, other activation functions as **RELU** or **SOFTMAX**, .... among others.
+ I have in mind to implement different characteristics to the class, such as **MOMENTUM**, other activation functions as **SOFTMAX**, .... among others.
  
  It would be very interesting to add specific functions to speed up programming and its use in **convolutional neural networks**.
  
@@ -268,6 +268,9 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  By Rafa.
  
+   ### CHANGES
+ **v.1.0.1**
+ 2021-07-19 New activation function **RELU** added
  
  @author Rafael Martin Soto
  
@@ -275,7 +278,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  @since July 2021
  
- @version 1.0
+ @version 1.0.1
  
  @license GNU General Public License v3.0
  
