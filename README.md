@@ -235,13 +235,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  Machine learning is magic. Artificial intelligence is an exciting world, but deep learning process at Backpropagation algorithm take a lot of time. PHP is not the most efficient programming language for do tasks of deep learning, but it is perhaps the most extensive programming language in the world (and i love it :heart_eyes:). The opportunity to train complex models on local machines without need to install almost anything and later implement them on STANDARD production servers (like shared hosting services) without need to configure anything, gives a clear advantage to this programming model and opens up endless possibilities.
  
  
- **1) SOME BUG. NOT 100% GOOD RESULTS IN MEANSQUARE ERROR:**
- 
- The system of obtaining the quadratic error of the network will surely be changed, since the current system looks for the error on the first 100 data of the model to be learned (so as not to perform the calculation on the entire entire database). An alternative solution will be sought to improve the accuracy of the error.
- 
- 
- 
- **2) ADD SOME FEATURES**
+ **1) ADD SOME FEATURES**
  
  I have in mind to implement different characteristics to the class, such as **MOMENTUM**, other activation functions as **SOFTMAX**, .... among others.
  
@@ -256,7 +250,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  ### ACCELERATE LEARNING SPEED
  
  
- **3) MULTITHREAD & MULTI-PROCESSORS**
+ **2) MULTITHREAD & MULTI-PROCESSORS**
  
  One solution to improve the speed spend in the process of deep learning is using **multi-processor threads (process parallelization)**... and **YES!!!. PHP can do it natively!!!!** :blush:
  
@@ -266,7 +260,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
   ### THE GREAT PROJECT
   
- **4) DEEP LEARNING SERVER FARM WITH PHP**
+ **3) DEEP LEARNING SERVER FARM WITH PHP**
 
  The last step will be to create a service of Deep Learning Server Farm... but we need to wait. Everything will come in due time. Much work remains to be done before :smiley:
  
@@ -279,7 +273,7 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  **v.1.0.1**
  2021-07-19
  - New activation function **RELU** added
- - Changed Learn Method & MeanSquaredError to accept Validation & Test data
+ - Changed Learn Method & MeanSquaredError to accept Validation & Test data. Solved not 100% good results on MeanSquaredError
  
  @author Rafael Martin Soto
  
