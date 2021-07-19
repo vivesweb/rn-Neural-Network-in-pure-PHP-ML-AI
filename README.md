@@ -280,7 +280,8 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  **v.1.0.1**
  2021-07-19
  - New activation function **RELU** added
- - Changed Learn Method & MeanSquaredError to accept Validation & Test data. Solved not 100% good results on MeanSquaredError
+ - Changed Learn Method & MeanSquaredError to accept Validation & Test data.
+ - Solved 'not 100% good results' on MeanSquaredError. Now the results are 100% Reliable.
  
  @author Rafael Martin Soto
  
