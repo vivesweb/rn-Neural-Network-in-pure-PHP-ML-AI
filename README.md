@@ -122,12 +122,19 @@ Example:
 - **PROCESS OF LEARN:**
 
 *$rn->Learn([ARRAY OF FLOAT], [ARRAY OF FLOAT], [ARRAY OF FLOAT], [ARRAY OF FLOAT], [ARRAY OF FLOAT], [ARRAY OF FLOAT], INT);*
+
 1.- Array of Train Items
+
 2.- Array of Train Desired Outputs
+
 3.- Optionally. Array of Validation Items (if not set, they will be Train Items by default)
+
 4.- Optionally. Array of Validation Desired outputs (if not set, they will be Train Desired Items by default)
+
 5.- Optionally. Array of Test Items (if not set, they will be Validation Items by default)
+
 6.- Optionally. Array of Test Desired outputs (if not set, they will be Validation Desired Items by default)
+
 7.- Optionally. Number of Epochs
 
 Example:
