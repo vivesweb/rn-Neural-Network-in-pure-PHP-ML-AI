@@ -147,8 +147,11 @@ class layer
 			$f = $Y;
 		}
 		switch($this->activation_function){
+			case 'relu': 	return $f > 0;
+							break;
 			case 'tanh': 	$tanh = tanh($f);
 							return (1 - $tanh) * (1 + $tanh);
+							break;
 			case 'sigm':
 			default:		return $f*(1-$f);
 							break;
@@ -162,6 +165,8 @@ class layer
 	 */
 	function f($x){
 		switch( $this->activation_function ){
+			case 'relu':	return $x * ($x > 0); // or max(0, $x);
+							break;
 			case 'tanh':	return tanh($x);
 							break;
 			case 'sigm':
