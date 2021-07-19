@@ -35,9 +35,9 @@ class rn
     public $layers					= [];
 	public $num_layers				= 0;
 	public $alpha 					= 1;
-	public $InformEachXBlock 		= NULL; // echoes actual error each X blocks of datasets
+	public $InformEachXBlock 		= 100; // echoes actual error each 100 blocks of datasets
 	public $InformEachXEpoch 		= 100; // echoes actual error each 100 epochs
-	public $MaxItemsMeanSquareError = 100; // Max number of Train items to get the Mean Square Error
+	public $MaxItemsMeanSquareError = 1000000; // Max number of Train items to get the Mean Square Error
 	public $num_epochs 				= 1000;
 	public $MeanSquareError			= 0;
 	
@@ -101,6 +101,15 @@ class rn
 
 	
 	
+
+	/**
+	 * Set Num of max items to be calculated at Mean Square Error
+	 * 
+	 * @param array $MaxItemsMeanSquareError
+	 */
+	public function fSet_MaxItemsMeanSquareError( $MaxItemsMeanSquareError ){
+		$this->MaxItemsMeanSquareError = $MaxItemsMeanSquareError;
+	} // /fSet_MaxItemsMeanSquareError
 	
 	
 	/**
@@ -191,24 +200,33 @@ class rn
 	 * @param array $arrTrainOutputItems
 	 * @param int $Epochs (Optional. Default 1000 Epochs)
 	 */
-	public function Learn($arrTrainInputItems, $arrTrainOutputItems, $Epochs = null){
-		if( isset($Epochs) && $Epochs != null ){
-			$this->num_epochs = $Epochs;
+	public function Learn($arrTrainInputItems, $arrTrainOutputItems, $arrValidationInputItems = NULL, $arrValidationOutputItems = NULL, $arrTestInputItems = NULL, $arrTestOutputItems = NULL, $Epochs = NULL){
+		if( !isset($arrValidationInputItems) && is_null($arrValidationInputItems) ){
+			$arrValidationInputItems 	= $arrTrainInputItems;
+			$arrValidationOutputItems 	= $arrValidationOutputItems;
 		}
+		if( !isset($arrTestInputItems) && is_null($arrTestInputItems) ){
+			$arrTestInputItems	 		= $arrValidationInputItems;
+			$arrTestOutputItems 		= $arrValidationOutputItems;
+		}
+		if( isset($Epochs) && !is_null($Epochs) ){
+			$this->num_epochs 			= $Epochs;
+		}
+
 		$num_sample_data = count($arrTrainInputItems);
 		for($i = 0;$i<$this->num_epochs;$i++){
 
 			for($j=0;$j<$num_sample_data;$j++){
 				$this->BackPropagation($arrTrainInputItems[$j],$arrTrainOutputItems[$j]);
 
-				if( $this->InformEachXBlock !== NULL && $j%$this->InformEachXBlock == 0 ){
-					$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
+				if( $j%$this->InformEachXBlock == 0 ){
+					$MeanSquareError = $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
 					echo 'Item '.$j.'/'.$num_sample_data.' . Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
 					$this->MeanSquareError = $MeanSquareError;
 				}
 			}
-			if( $this->InformEachXBlock === NULL && $i%$this->InformEachXEpoch == 0 ){
-				$MeanSquareError = $this->MeanSquareError( $arrTrainInputItems,$arrTrainOutputItems );
+			if( $i%$this->InformEachXEpoch == 0 && $this->InformEachXEpoch > $this->InformEachXBlock ){
+				$MeanSquareError = $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
 				echo 'Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
 				$this->MeanSquareError = $MeanSquareError;
 			}
@@ -220,11 +238,11 @@ class rn
 	/**
 	 * Mean Square Error
 	 * 
-	 * @param array $arrTrainInputItems
-	 * @param array $arrTrainOutputItems
+	 * @param array $arrValidationInputItems
+	 * @param array $arrValidationOutputItems
 	 * @return float $MeanSquareError
 	 */
-	public function MeanSquareError($arrTrainInputItems, $arrTrainOutputItems){
+	public function MeanSquareError($arrValidationInputItems, $arrValidationOutputItems){
 		$last_id_layer = $this->num_layers - 1;
 		$num_output_nodes = $this->layers[$last_id_layer]->num_nodes;
 		$ErrorSum = 0;
@@ -237,8 +255,8 @@ class rn
 		$NumItemsAdded = 0;
 		for($i=0;$i<$num_sample_data ;$i++){
 			for($j=0;$j<$num_output_nodes;$j++){
-				$ValueEstimated = $this->run($j, $arrTrainInputItems[$i]);
-				$Diff = ( $arrTrainOutputItems[$i][$j]-$ValueEstimated );
+				$ValueEstimated = $this->run($j, $arrValidationInputItems[$i]);
+				$Diff = ( $arrValidationOutputItems[$i][$j]-$ValueEstimated );
 				$ErrorSum += pow($Diff, 2);
 				++$NumItemsAdded;
 			}
