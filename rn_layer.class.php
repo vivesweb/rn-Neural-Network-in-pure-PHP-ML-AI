@@ -6,7 +6,7 @@
  * @author Rafael Martin Soto
  * @author {@link http://www.inatica.com/ Inatica}
  * @since July 2021
- * @version 1.0
+ * @version 1.0.1
  * @license GNU General Public License v3.0
  */
 

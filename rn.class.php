@@ -7,7 +7,7 @@
  * @author Rafael Martin Soto
  * @author {@link http://www.inatica.com/ Inatica}
  * @since July 2021
- * @version 1.0
+ * @version 1.0.1
  * @license GNU General Public License v3.0
  * 
  * 	Thanks to:
@@ -40,11 +40,13 @@ class rn
 	public $MaxItemsMeanSquareError = 1000000; // Max number of Train items to get the Mean Square Error
 	public $num_epochs 				= 1000;
 	public $MeanSquareError			= 0;
+	public $system_resources		= null;
 	
     public function __construct( $arrLayersNodes = [2, 12, 8, 1] ) {
 		$this->layers = [];
 		$this->num_layers = count( $arrLayersNodes );
 		$previous_layer = null;
+		$system_resources = new system_resources(); // Create obj class system_resources, needed for control CPU Temperature in process of BackPropagation of the Deep Learning
 		
 		// Init layers
 		for($i=0;$i<$this->num_layers;$i++){
@@ -201,11 +203,11 @@ class rn
 	 * @param int $Epochs (Optional. Default 1000 Epochs)
 	 */
 	public function Learn($arrTrainInputItems, $arrTrainOutputItems, $arrValidationInputItems = NULL, $arrValidationOutputItems = NULL, $arrTestInputItems = NULL, $arrTestOutputItems = NULL, $Epochs = NULL){
-		if( !isset($arrValidationInputItems) && is_null($arrValidationInputItems) ){
+		if( !isset($arrValidationInputItems) || is_null($arrValidationInputItems) ){
 			$arrValidationInputItems 	= $arrTrainInputItems;
-			$arrValidationOutputItems 	= $arrValidationOutputItems;
+			$arrValidationOutputItems 	= $arrTrainOutputItems;
 		}
-		if( !isset($arrTestInputItems) && is_null($arrTestInputItems) ){
+		if( !isset($arrTestInputItems) || is_null($arrTestInputItems) ){
 			$arrTestInputItems	 		= $arrValidationInputItems;
 			$arrTestOutputItems 		= $arrValidationOutputItems;
 		}
@@ -220,15 +222,23 @@ class rn
 				$this->BackPropagation($arrTrainInputItems[$j],$arrTrainOutputItems[$j]);
 
 				if( $j%$this->InformEachXBlock == 0 ){
-					$MeanSquareError = $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
-					echo 'Item '.$j.'/'.$num_sample_data.' . Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
-					$this->MeanSquareError = $MeanSquareError;
+					$MeanSquareErrorValidationData 	= $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
+					$MeanSquareErrorTestData 		= $this->MeanSquareError( $arrTestInputItems, $arrTestOutputItems );
+					$StrEcho  = 'Item '.$j.'/'.$num_sample_data.' . Epoch '.$i.'/'.$this->num_epochs;
+					$StrEcho .= '. Actual error: (Validaton Data: '.number_format($MeanSquareErrorValidationData, 4, '.', ','). ')';
+					$StrEcho .= '/ (Test Data: '.number_format($MeanSquareErrorTestData, 4, '.', ','). ')';
+					echo $StrEcho.PHP_EOL;
+					$this->MeanSquareError = $MeanSquareErrorValidationData;
 				}
 			}
 			if( $i%$this->InformEachXEpoch == 0 && $this->InformEachXEpoch > $this->InformEachXBlock ){
-				$MeanSquareError = $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
-				echo 'Epoch '.$i.'/'.$this->num_epochs.'. Actual error: '.number_format($MeanSquareError, 4, '.', ',').PHP_EOL;
-				$this->MeanSquareError = $MeanSquareError;
+				$MeanSquareErrorValidationData 	= $this->MeanSquareError( $arrValidationInputItems, $arrValidationOutputItems );
+				$MeanSquareErrorTestData 		= $this->MeanSquareError( $arrTestInputItems, $arrTestOutputItems );
+				$StrEcho  = 'Epoch '.$i.'/'.$this->num_epochs;
+				$StrEcho .= '. Actual error: (Validaton Data: '.number_format($MeanSquareErrorValidationData, 4, '.', ','). ')';
+				$StrEcho .= '/ (Test Data: '.number_format($MeanSquareErrorTestData, 4, '.', ','). ')';
+				echo $StrEcho.PHP_EOL;
+				$this->MeanSquareError = $MeanSquareErrorValidationData;
 			}
 		}
 	} // /Learn()
@@ -246,7 +256,7 @@ class rn
 		$last_id_layer = $this->num_layers - 1;
 		$num_output_nodes = $this->layers[$last_id_layer]->num_nodes;
 		$ErrorSum = 0;
-		$num_sample_data = count($arrTrainInputItems);
+		$num_sample_data = count($arrValidationInputItems);
 
 		if($num_sample_data > $this->MaxItemsMeanSquareError){
 			$num_sample_data = $this->MaxItemsMeanSquareError;
