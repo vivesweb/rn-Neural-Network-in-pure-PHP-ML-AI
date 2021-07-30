@@ -287,6 +287,8 @@ If the process of learning is tooooo slooooow, we can use InformEachXBlock, for 
  
  @author {@link http://www.inatica.com/ Inatica}
  
+ @blog {@link https://rafamartin10.blogspot.com/ Rafael Martin's Blog}
+ 
  @since July 2021
  
  @version 1.0.1
