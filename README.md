@@ -7,8 +7,8 @@ It is a library for machine learning (deep learning) to learn patterns with your
 No more easy use is possible. You only need to include a master file .php as... **_require_once( 'rn.class.php' );_** and with very little code begin to train your data. You have an example.php file for test it.
 
  # SCREENSHOT:
-![Screenshot of the PDF labels created with PHP](https://github.com/vivesweb/printable_labels_pdf/blob/main/test_pdf_labels.png?raw=true)
-* This screenshot belongs to the result of the example file *example.php*, executed on a VirtualBox Ubuntu Server 20.04.2 LTS (Focal Fossa) with PHP7.4.3 in 18seconds.
+![Screenshot of the NEURAL NETWORK with PHP](https://github.com/vivesweb/rn-Neural-Network-in-pure-PHP-ML-AI/blob/main/2Captura-de-pantalla-2021-07-15-a-les-14.00.49.jpg?raw=true)
+* This screenshot belongs to the result of the example fileexample.php*, executed on a raspberry pi (B + 512MB 700 MHz ARM11). The time spend for the script is less than 2 seconds. The output is: 1) Default network values, 2) Process of learning and backpropagation, 3) Final values of the network learned, 4) Export of the values of the configuration of our neural network in JSON format..
 
  
  # REQUERIMENTS:
